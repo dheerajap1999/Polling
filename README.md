@@ -45,7 +45,6 @@
 - Use Node js to build api based polling system.
 - Use MongoDB to store data.
 - library which is been used (Dotenv, Express, Mongoose, Nodemon)
--
 - Test the API thoroughly to ensure all features are working correctly.
 
 ## How to run the project
