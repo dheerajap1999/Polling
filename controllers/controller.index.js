@@ -26,10 +26,10 @@ const createOption = async (req,res) => {
         const createOptionPayload = [];
         for(let option of options){
             let createOptionPayloadObj = {
-                questionId: req.params.id,
+                questionId: req.params.id, // get id from api
                 text: option.text,
             }
-            createOptionPayload.push(createOptionPayloadObj);
+            createOptionPayload.push(createOptionPayloadObj);// adding a question id to option and pushing it 
         }
         const optionResp = await optionModel.insertMany(createOptionPayload)
         await question.save()
@@ -47,7 +47,7 @@ const deleteQuestion = async (req,res) => {
 
         await questionModel.updateOne(
             { _id: questionId },
-            { $set: { isDeleted: true, deletedAt: new Date() } }
+            { $set: { isDeleted: true, deletedAt: new Date() } } // on question modael set deleted to true 
         );
         res.status(200).send({"status":"true","message":"Question deleted successfully"})
     }
@@ -63,7 +63,7 @@ const deleteOption = async (req,res) => {
 
         await optionModel.updateOne(
             { _id: optionId },
-            { isDeleted: true, deletedAt: new Date() }
+            { isDeleted: true, deletedAt: new Date() }// on option model set deleted to true
         )
 
         return res.status(200).send({ status: true, message: "Options delete successfully" })
@@ -78,9 +78,9 @@ const voteOption = async (req, res) => {
         const optionId = req.params.id;
 
         const updateOptionVote = await optionModel.findOneAndUpdate(
-            { _id: optionId, isDeleted: false },
-            { $inc: { votes: 1 } },
-            { new: true }
+            { _id: optionId, isDeleted: false },// getting data which is not deleted
+            { $inc: { votes: 1 } },// incrementing the  ote by 1 after hitting the api
+            { new: true }// it will show the latest data after update in DB else past data will be shown
         );
 
         if(updateOptionVote) {
@@ -100,14 +100,17 @@ const voteOption = async (req, res) => {
 const getSingleQuestion = async (req,res) => {
     try{
         const questionId = req.params.id;
+         // Find the question by ID and ensure it is not marked as deleted
         const question = await questionModel.findOne({_id: questionId, isDeleted: false});
+        // Find all options for the question that are not deleted, select only 'text' and 'votes', and convert the result to plain JavaScript objects
         let options = await optionModel.find({ questionId: questionId, isDeleted: false }).select({ text: 1, votes: 1 }).lean();
 
+        // Add a 'link_to_vote' property to each option, creating a link to vote for that option
         options.map((option) => {
             option.link_to_vote = `http://localhost:${PORT}/options/${option._id}/add_vote`;
         })
 
-
+        // Create a response object containing relevant information about the question and its options
         const responseObj = {
             _id: question.id,
             title: question.title,

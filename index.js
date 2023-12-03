@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-
+// Mongo DB Connection
 mongoose.connect(MONGO_DB_URI, { useNewUrlParser: true })
     .then(() => {
         console.log(`Connected to MongoDB...`);
