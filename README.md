@@ -45,7 +45,36 @@
 - Use Node js to build api based polling system.
 - Use MongoDB to store data.
 - library which is been used (Dotenv, Express, Mongoose, Nodemon)
+-
 - Test the API thoroughly to ensure all features are working correctly.
 
-Good luck with your polling system project!
+## How to run the project
+
+### Environment vars
+This project uses the following environment variables:
+
+| Name                          | Description                         | Default Value                                  |
+| ----------------------------- | ------------------------------------| -----------------------------------------------|
+|MONGO_DB_URL                   | MongoDB String for connections      | "mongodb+srv://root:root@cluster0.pbwxl9n.mongodb.net/PollingDB?retryWrites=true&w=majority"                                          |
+|Port                           |Were project is hosted               |9000
+
+### Pre-requisites
+- Install [Node.js](https://nodejs.org/en/) version 8.0.0
+
+
+### Getting started
+- Clone the repository
+```
+git clone  https://github.com/dheerajap1999/Polling.git
+```
+- Install dependencies
+```
+cd Polling
+npm install
+```
+- Build and run the project
+```
+npm start
+```
+Navigate to http://localhost:9000
 
