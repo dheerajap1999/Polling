@@ -49,5 +49,3 @@
 
 Good luck with your polling system project!
 
-## Demo
-A live demo of Super Hero Hunter app can be found [here](https://dheerajap1999.github.io/SuperHeroHunter/)
