@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "749071d3-20c8-4499-a5cf-ec4840f1702c",
+		"name": "Polling System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29494869"
+	},
+	"item": [
+		{
+			"name": "Create Question API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"What is your age ?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "52.66.7.156:9000/questions/create",
+					"host": [
+						"52",
+						"66",
+						"7",
+						"156"
+					],
+					"port": "9000",
+					"path": [
+						"questions",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Question API",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"What is your age ?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "52.66.7.156:9000/questions/create",
+							"host": [
+								"52",
+								"66",
+								"7",
+								"156"
+							],
+							"port": "9000",
+							"path": [
+								"questions",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "192"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c0-85Z2OCjlZR/zUf1phDWJU/GwFu0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Dec 2023 16:37:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"true\",\n    \"data\": {\n        \"title\": \"What is your age ?\",\n        \"isDeleted\": false,\n        \"_id\": \"65788c2f9ca90304e382d55b\",\n        \"createdAt\": \"2023-12-12T16:37:03.792Z\",\n        \"updatedAt\": \"2023-12-12T16:37:03.792Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Add vote API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "52.66.7.156:9000/options/65788c8d9ca90304e382d55d/add_vote",
+					"host": [
+						"52",
+						"66",
+						"7",
+						"156"
+					],
+					"port": "9000",
+					"path": [
+						"options",
+						"65788c8d9ca90304e382d55d",
+						"add_vote"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add vote API",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "52.66.7.156:9000/options/65788c8d9ca90304e382d55d/add_vote",
+							"host": [
+								"52",
+								"66",
+								"7",
+								"156"
+							],
+							"port": "9000",
+							"path": [
+								"options",
+								"65788c8d9ca90304e382d55d",
+								"add_vote"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "275"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"113-pbINbIFrmIBeMagETbKkBbLV/Ow\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Dec 2023 16:39:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Vote counted successfully\",\n    \"data\": {\n        \"_id\": \"65788c8d9ca90304e382d55d\",\n        \"questionId\": \"65788c2f9ca90304e382d55b\",\n        \"text\": \"age less than 18\",\n        \"votes\": 1,\n        \"isDeleted\": false,\n        \"__v\": 0,\n        \"createdAt\": \"2023-12-12T16:38:37.244Z\",\n        \"updatedAt\": \"2023-12-12T16:39:48.511Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create multiple options",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"options\":[\r\n        {\r\n            \"text\":\"age less than 18\"\r\n        },\r\n        {\r\n            \"text\":\"age more than 18\"\r\n        },\r\n        {\r\n            \"text\":\"age more than 30\"\r\n        },\r\n        {\r\n            \"text\":\"age more than 60\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "52.66.7.156:9000/questions/65788c2f9ca90304e382d55b/options/create",
+					"host": [
+						"52",
+						"66",
+						"7",
+						"156"
+					],
+					"port": "9000",
+					"path": [
+						"questions",
+						"65788c2f9ca90304e382d55b",
+						"options",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Questions API",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"options\":[\r\n        {\r\n            \"text\":\"age less than 18\"\r\n        },\r\n        {\r\n            \"text\":\"age more than 18\"\r\n        },\r\n        {\r\n            \"text\":\"age more than 30\"\r\n        },\r\n        {\r\n            \"text\":\"age more than 60\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "52.66.7.156:9000/questions/65788c2f9ca90304e382d55b/options/create",
+							"host": [
+								"52",
+								"66",
+								"7",
+								"156"
+							],
+							"port": "9000",
+							"path": [
+								"questions",
+								"65788c2f9ca90304e382d55b",
+								"options",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "886"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"376-5soKUHniM/SebNbT1g3asXPmXIg\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Dec 2023 16:38:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"true\",\n    \"data\": [\n        {\n            \"questionId\": \"65788c2f9ca90304e382d55b\",\n            \"text\": \"age less than 18\",\n            \"votes\": 0,\n            \"isDeleted\": false,\n            \"_id\": \"65788c8d9ca90304e382d55d\",\n            \"__v\": 0,\n            \"createdAt\": \"2023-12-12T16:38:37.244Z\",\n            \"updatedAt\": \"2023-12-12T16:38:37.244Z\"\n        },\n        {\n            \"questionId\": \"65788c2f9ca90304e382d55b\",\n            \"text\": \"age more than 18\",\n            \"votes\": 0,\n            \"isDeleted\": false,\n            \"_id\": \"65788c8d9ca90304e382d55e\",\n            \"__v\": 0,\n            \"createdAt\": \"2023-12-12T16:38:37.244Z\",\n            \"updatedAt\": \"2023-12-12T16:38:37.244Z\"\n        },\n        {\n            \"questionId\": \"65788c2f9ca90304e382d55b\",\n            \"text\": \"age more than 30\",\n            \"votes\": 0,\n            \"isDeleted\": false,\n            \"_id\": \"65788c8d9ca90304e382d55f\",\n            \"__v\": 0,\n            \"createdAt\": \"2023-12-12T16:38:37.245Z\",\n            \"updatedAt\": \"2023-12-12T16:38:37.245Z\"\n        },\n        {\n            \"questionId\": \"65788c2f9ca90304e382d55b\",\n            \"text\": \"age more than 60\",\n            \"votes\": 0,\n            \"isDeleted\": false,\n            \"_id\": \"65788c8d9ca90304e382d560\",\n            \"__v\": 0,\n            \"createdAt\": \"2023-12-12T16:38:37.245Z\",\n            \"updatedAt\": \"2023-12-12T16:38:37.245Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a Question by Id API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "52.66.7.156:9000/questions/65788c2f9ca90304e382d55b",
+					"host": [
+						"52",
+						"66",
+						"7",
+						"156"
+					],
+					"port": "9000",
+					"path": [
+						"questions",
+						"65788c2f9ca90304e382d55b"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a Question by Id API",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "52.66.7.156:9000/questions/65788c2f9ca90304e382d55b",
+							"host": [
+								"52",
+								"66",
+								"7",
+								"156"
+							],
+							"port": "9000",
+							"path": [
+								"questions",
+								"65788c2f9ca90304e382d55b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "708"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2c4-mIz7kaqwVtOVpIveJvtbnopzHTQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Dec 2023 16:41:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"true\",\n    \"data\": {\n        \"_id\": \"65788c2f9ca90304e382d55b\",\n        \"title\": \"What is your age ?\",\n        \"options\": [\n            {\n                \"_id\": \"65788c8d9ca90304e382d55d\",\n                \"text\": \"age less than 18\",\n                \"votes\": 1,\n                \"link_to_vote\": \"http://localhost:9000/options/65788c8d9ca90304e382d55d/add_vote\"\n            },\n            {\n                \"_id\": \"65788c8d9ca90304e382d55e\",\n                \"text\": \"age more than 18\",\n                \"votes\": 0,\n                \"link_to_vote\": \"http://localhost:9000/options/65788c8d9ca90304e382d55e/add_vote\"\n            },\n            {\n                \"_id\": \"65788c8d9ca90304e382d55f\",\n                \"text\": \"age more than 30\",\n                \"votes\": 0,\n                \"link_to_vote\": \"http://localhost:9000/options/65788c8d9ca90304e382d55f/add_vote\"\n            },\n            {\n                \"_id\": \"65788c8d9ca90304e382d560\",\n                \"text\": \"age more than 60\",\n                \"votes\": 0,\n                \"link_to_vote\": \"http://localhost:9000/options/65788c8d9ca90304e382d560/add_vote\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a QuestionById API",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "52.66.7.156:9000/questions/65788c2f9ca90304e382d55b",
+					"host": [
+						"52",
+						"66",
+						"7",
+						"156"
+					],
+					"port": "9000",
+					"path": [
+						"questions",
+						"65788c2f9ca90304e382d55b"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a QuestionById API",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "52.66.7.156:9000/questions/65788c2f9ca90304e382d55b",
+							"host": [
+								"52",
+								"66",
+								"7",
+								"156"
+							],
+							"port": "9000",
+							"path": [
+								"questions",
+								"65788c2f9ca90304e382d55b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3b-cevn6C5tf3DV1l/XOhB6ymOyGV8\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Dec 2023 16:42:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"true\",\n    \"message\": \"Question deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete options",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "52.66.7.156:9000/options/65788c8d9ca90304e382d55d/delete",
+					"host": [
+						"52",
+						"66",
+						"7",
+						"156"
+					],
+					"port": "9000",
+					"path": [
+						"options",
+						"65788c8d9ca90304e382d55d",
+						"delete"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete options",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "52.66.7.156:9000/options/65788c8d9ca90304e382d55d/delete",
+							"host": [
+								"52",
+								"66",
+								"7",
+								"156"
+							],
+							"port": "9000",
+							"path": [
+								"options",
+								"65788c8d9ca90304e382d55d",
+								"delete"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-nonqm/IKlvDU5ypZtV17OJwjT1c\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Dec 2023 16:43:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Options delete successfully\"\n}"
+				}
+			]
+		}
+	]
+}
