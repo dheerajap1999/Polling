@@ -32,7 +32,6 @@ const createOption = async (req,res) => {
             createOptionPayload.push(createOptionPayloadObj);// adding a question id to option and pushing it 
         }
         const optionResp = await optionModel.insertMany(createOptionPayload)
-        await question.save()
         res.status(201).send({"status":"true","data":optionResp})
     }
     catch (error){
